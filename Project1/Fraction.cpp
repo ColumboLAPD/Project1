@@ -9,6 +9,7 @@ Fraction::Fraction(int numerator, int denominator)
 
 void Fraction::print()
 {
+	reduce();
 	std::cout << m_numerator << "/" << m_denominator << std::endl;
 }
 
@@ -25,6 +26,26 @@ int Fraction::nod(int a, int b)
 		nod(b, a % b);
 }
 
+Fraction Fraction::reverseFraction(int value)
+{
+	return Fraction(1, value);
+}
+
+Fraction Fraction::reverseFraction(const Fraction& f)
+{
+	return Fraction(f.m_denominator, f.m_numerator);
+}
+
+Fraction Fraction::operator-() const
+{
+	return Fraction(-m_numerator, m_denominator);
+}
+
+bool Fraction::operator!() const
+{
+	return (m_numerator == 0 && m_denominator == 1);
+}
+
 void Fraction::reduce()
 {
 	int NOD = nod(m_numerator, m_denominator);
@@ -32,31 +53,72 @@ void Fraction::reduce()
 	m_denominator /= NOD;
 }
 
-Fraction operator* (const Fraction& fraction, int value)
+Fraction operator* (const Fraction& f, int value)
 {
-	Fraction result(0, 1);
-	result.m_numerator = fraction.m_numerator * value;
-	result.m_denominator = fraction.m_denominator;
-
-	return result;
+	return Fraction(f.m_numerator * value, f.m_denominator);
 }
 
 Fraction operator* (const Fraction& f1, const Fraction& f2)
 {
-	Fraction result(1, 1);
-	result.m_numerator = f1.m_numerator * f2.m_numerator;
-	result.m_denominator = f1.m_denominator * f2.m_denominator;
-
-	return result;
+	return Fraction(f1.m_numerator * f2.m_numerator, f1.m_denominator * f2.m_denominator);
 }
 
 Fraction operator* (int value, const Fraction& f)
 {
-	Fraction result(1, 1);
-	result.m_numerator = value * f.m_numerator;
-	result.m_denominator = f.m_denominator;
+	return Fraction(value * f.m_numerator, f.m_denominator);
+}
 
-	return result;
+Fraction operator/(const Fraction& f1, const Fraction& f2)
+{
+	Fraction temp = Fraction::reverseFraction(f2);
+	return f1 * temp;
+}
+
+Fraction operator/(const Fraction& f, int value)
+{
+	return f * Fraction::reverseFraction(value);
+}
+
+Fraction operator/(int value, const Fraction& f)
+{
+	return value * Fraction::reverseFraction(f);
+}
+
+Fraction operator+(const Fraction& f1, const Fraction& f2)
+{
+	int tempDenominator = f1.m_denominator * f2.m_denominator;
+	int tempNumerator = f1.m_numerator * f2.m_denominator + f2.m_numerator * f1.m_denominator;
+
+	return Fraction(tempNumerator, tempDenominator);
+}
+
+Fraction operator+(const Fraction& f, int value)
+{
+	int tempNumerator = f.m_numerator + f.m_denominator * value;
+
+	return Fraction(tempNumerator, f.m_denominator);
+}
+
+Fraction operator+(int value, const Fraction& f)
+{
+	int tempNumerator = f.m_numerator + f.m_denominator * value;
+
+	return Fraction(tempNumerator, f.m_denominator);
+}
+
+Fraction operator-(const Fraction& f1, const Fraction& f2)
+{
+	return f1 + (-f2);
+}
+
+Fraction operator-(const Fraction& f, int value)
+{
+	return f + (-value);
+}
+
+Fraction operator-(int value, const Fraction& f)
+{
+	return value + (-f);
 }
 
 std::ostream& operator << (std::ostream& out, const Fraction& f)
