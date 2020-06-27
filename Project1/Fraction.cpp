@@ -36,6 +36,32 @@ Fraction Fraction::reverseFraction(const Fraction& f)
 	return Fraction(f.m_denominator, f.m_numerator);
 }
 
+Fraction& Fraction::operator++()
+{
+	m_numerator += m_denominator;
+	return *this;
+}
+
+Fraction& Fraction::operator--()
+{
+	m_numerator -= m_denominator;
+	return *this;
+}
+
+Fraction Fraction::operator++(int)
+{
+	Fraction temp(m_numerator, m_denominator);
+	++(*this);
+	return temp;
+}
+
+Fraction Fraction::operator--(int)
+{
+	Fraction temp(m_numerator, m_denominator);
+	--(*this);
+	return temp;
+}
+
 Fraction Fraction::operator-() const
 {
 	return Fraction(-m_numerator, m_denominator);

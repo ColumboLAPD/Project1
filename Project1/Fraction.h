@@ -39,6 +39,12 @@ public:
 	friend bool operator <= (const Fraction& f1, const Fraction& f2);
 	friend bool operator < (const Fraction& f1, const Fraction& f2);
 
+	Fraction& operator ++ ();
+	Fraction& operator -- ();
+	Fraction operator ++ (int);
+	Fraction operator -- (int);
+
+
 	Fraction operator - () const;
 	bool operator ! () const;
 
