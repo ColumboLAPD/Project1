@@ -20,7 +20,7 @@ int main()
 	std::cout << f1 + f2 << std::endl;
 	std::cout << 2 / f1 << std::endl;
 
-	if (f1 == f2)
+	if (f1 < f2)
 		std::cout << "True\n";
 	else
 		std::cout << "False\n";
