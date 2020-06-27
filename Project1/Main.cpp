@@ -1,8 +1,5 @@
 #include <iostream>
 #include "Fraction.h"
-#include "Dollars.h"
-#include "Point.h"
-#include "Something.h"
 
 int main()
 {
@@ -23,8 +20,7 @@ int main()
 	std::cout << f1 + f2 << std::endl;
 	std::cout << 2 / f1 << std::endl;
 
-	Fraction f3;
-	if (!f2)
+	if (f1 == f2)
 		std::cout << "True\n";
 	else
 		std::cout << "False\n";

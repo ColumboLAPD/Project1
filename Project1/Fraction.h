@@ -32,6 +32,9 @@ public:
 	friend Fraction operator - (const Fraction& f, int value);
 	friend Fraction operator - (int value, const Fraction& f);
 
+	friend bool operator == (const Fraction& f1, const Fraction& f2);
+	friend bool operator != (const Fraction& f1, const Fraction& f2);
+
 	Fraction operator - () const;
 	bool operator ! () const;
 
