@@ -1,9 +1,12 @@
 #include <iostream>
+#include <vector>
+#include <algorithm>
 #include "Fraction.h"
+#include "Car.h"
 
 int main()
 {
-	(Fraction(3, 4) * Fraction(2, 7)).print();
+	/*(Fraction(3, 4) * Fraction(2, 7)).print();
 	(Fraction(3, 4) * 3).print();
 	(3 * Fraction(2, 7)).print();
 	(Fraction(1, 2) * Fraction(2, 3) * Fraction(3, 4)).print();//вывод через функцию print
@@ -23,8 +26,21 @@ int main()
 	if (f1 < f2)
 		std::cout << "True\n";
 	else
-		std::cout << "False\n";
+		std::cout << "False\n";*/
 
+	std::vector<Car> v;
+	v.push_back(Car("Ford", "Mustang"));
+	v.push_back(Car("Ford", "Focus"));
+	v.push_back(Car("Lada", "Niva"));
+	v.push_back(Car("Lada", "Vesta"));
+	v.push_back(Car("BMW", "M5"));
+
+	std::sort(v.begin(), v.end());
+
+	for (Car& c : v)
+	{
+		std::cout << c;
+	}
 
 	return 0;
 }
