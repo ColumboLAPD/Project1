@@ -72,6 +72,11 @@ bool Fraction::operator!() const
 	return (m_numerator == 0 && m_denominator == 1);
 }
 
+Fraction::operator double()
+{
+	return (double)m_numerator / (double)m_denominator;
+}
+
 void Fraction::reduce()
 {
 	int NOD = nod(m_numerator, m_denominator);

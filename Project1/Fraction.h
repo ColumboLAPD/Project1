@@ -44,12 +44,13 @@ public:
 	Fraction operator ++ (int);
 	Fraction operator -- (int);
 
-
 	Fraction operator - () const;
 	bool operator ! () const;
 
 	friend std::ostream& operator  << (std::ostream& out, const Fraction& f);
 	friend std::istream& operator >> (std::istream& in, Fraction& f);
+
+	operator double();
 	
 };
 
