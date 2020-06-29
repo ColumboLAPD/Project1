@@ -4,7 +4,13 @@
 Fraction::Fraction(int numerator, int denominator)
 	: m_numerator(numerator), m_denominator(denominator)
 {
+	assert(denominator != 0);
 	reduce();
+}
+
+Fraction::Fraction(const Fraction& f):
+	m_numerator(f.m_numerator), m_denominator(f.m_denominator)
+{
 }
 
 void Fraction::print()

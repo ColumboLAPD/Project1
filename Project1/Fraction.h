@@ -1,5 +1,6 @@
 #pragma once
 #include <iostream>
+#include <cassert>
 
 class Fraction
 {
@@ -9,6 +10,7 @@ private:
 
 public:
 	Fraction(int numerator = 0, int denominator = 1);
+	Fraction(const Fraction& f);
 
 	void print();
 	void reduce();
