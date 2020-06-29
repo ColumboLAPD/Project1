@@ -11,6 +11,7 @@ Fraction::Fraction(int numerator, int denominator)
 Fraction::Fraction(const Fraction& f):
 	m_numerator(f.m_numerator), m_denominator(f.m_denominator)
 {
+	std::cout << "Copy constructor" << std::endl;
 }
 
 void Fraction::print()

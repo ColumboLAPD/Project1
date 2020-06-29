@@ -22,7 +22,8 @@ void fractionDemo()
 	(3 * Fraction(2, 7)).print();
 	(Fraction(1, 2) * Fraction(2, 3) * Fraction(3, 4)).print();//вывод через функцию print*/
 	Fraction f5(Fraction(2, 4));
-	f5.print();
+	Fraction f6(f5);
+	f6.print();
 
 	std::cout << "Enter first fraction:\n";
 	Fraction f1;
