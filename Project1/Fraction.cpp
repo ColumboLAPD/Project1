@@ -69,6 +69,16 @@ Fraction Fraction::operator--(int)
 	return temp;
 }
 
+Fraction& Fraction::operator=(const Fraction& f)
+{
+	if (this == &f)
+		return *this;
+
+	m_numerator = f.m_numerator;
+	m_denominator = f.m_denominator;
+	return *this;
+}
+
 Fraction Fraction::operator-() const
 {
 	return Fraction(-m_numerator, m_denominator);

@@ -1,10 +1,11 @@
-#include <iostream>
+//#include <iostream>
 #include <vector>
 #include <algorithm>
 #include "Fraction.h"
 #include "Car.h"
 #include "IntArray.h"
 #include "GradeMap.h"
+#include "Average.h"
 
 void StudentGradeDemonstration()
 {
@@ -17,13 +18,9 @@ void StudentGradeDemonstration()
 
 void fractionDemo()
 {
-	(Fraction(3, 4) * Fraction(2, 7)).print();
-	(Fraction(3, 4) * 3).print();
-	(3 * Fraction(2, 7)).print();
-	(Fraction(1, 2) * Fraction(2, 3) * Fraction(3, 4)).print();//вывод через функцию print*/
-	Fraction f5(Fraction(2, 4));
+	//(Fraction(1, 2) * Fraction(2, 3) * Fraction(3, 4)).print();//вывод через функцию print*/
+	Fraction f5(Fraction(3, 7));
 	Fraction f6(f5);
-	f6.print();
 
 	std::cout << "Enter first fraction:\n";
 	Fraction f1;
@@ -33,20 +30,19 @@ void fractionDemo()
 	Fraction f2;
 	std::cin >> f2;
 
-	f1++;
-	f2--;
+	f2 = f6;
 
 	std::cout << static_cast<double>(f1) + 5.0 << std::endl;
-	std::cout << f2-- << std::endl;
+	std::cout << f2 << std::endl;
 
 	//std::cout << f1 << " * " << f2 << " = " << f1 * f2 << std::endl;//вывод через перегруженный оператор >>
-	std::cout << f1 + f2 << std::endl;
-	std::cout << 2 / f1 << std::endl;
+	//std::cout << f1 + f2 << std::endl;
+	//std::cout << 2 / f1 << std::endl;
 
-	if (f1 < f2)
+	/*if (f1 < f2)
 		std::cout << "True\n";
 	else
-		std::cout << "False\n";
+		std::cout << "False\n";*/
 }
 
 void carDemo()
@@ -77,9 +73,22 @@ void intArrayDemo()
 	std::cout << carray[3] << std::endl;
 }
 
+void averageDemo()
+{
+	Average avg;
+	avg += 5;
+	std::cout << avg;
+
+	avg += -2;
+	std::cout << avg;
+
+	(avg += 7) += 3;
+	std::cout << avg;
+}
+
 int main()
 {
-	fractionDemo();
+	averageDemo();
 
 	return 0;
 }

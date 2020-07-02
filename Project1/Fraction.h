@@ -45,6 +45,7 @@ public:
 	Fraction& operator -- ();
 	Fraction operator ++ (int);
 	Fraction operator -- (int);
+	Fraction& operator = (const Fraction& f);
 
 	Fraction operator - () const;
 	bool operator ! () const;
